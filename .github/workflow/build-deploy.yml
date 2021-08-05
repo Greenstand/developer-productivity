@@ -1,6 +1,7 @@
 name: Deployment Terraform
 
-on: [push]
+on: 
+  push
 
 jobs:
   terraform:
