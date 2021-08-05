@@ -19,8 +19,8 @@ jobs:
           tf_actions_comment: true
           # tf_actions_cli_credentials_token: ${{ secrets.TF_API_TOKEN }}
           args: '-backend-config="token=${{ secrets.TF_DIGITALOCEAN_TOKEN }}"'          
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'Terraform Plan'
         uses: hashicorp/terraform-github-actions@master
         with:
