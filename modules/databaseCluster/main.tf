@@ -3,6 +3,10 @@ data "digitalocean_project" "do_project"{
   name = var.project_name
 }
 
+data "digitalocean_database_cluster" "cluster" {
+  name = var.cluster_name
+}
+
 resource "digitalocean_database_db" "database" {
   # count = 1
   cluster_id = digitalocean_database_cluster.cluster.id
