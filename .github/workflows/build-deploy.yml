@@ -10,11 +10,6 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@master
-      - name: 'Terraform Format'
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.12.18
-          tf_actions_subcommand: "fmt"
       
       - name: 'Terraform Init'
         uses: hashicorp/terraform-github-actions@master
@@ -32,6 +27,7 @@ jobs:
           tf_actions_version: 0.12.18
           tf_actions_subcommand: 'plan'
           args: '-var="do_token=${{ secrets.TF_DIGITALOCEAN_TOKEN }}"' 
+          
       - name: 'Terraform Apply'
         uses: hashicorp/terraform-github-actions@master
         with:
