@@ -1,5 +1,5 @@
 
-data "digitalocean_project" "development"{
+data "digitalocean_project" "do_project"{
   name = var.project_name
 }
 
@@ -21,7 +21,7 @@ resource "digitalocean_database_cluster" "cluster" {
 
 
 resource "digitalocean_project_resources" "barfoo" {
-  project = data.digitalocean_project.development.id
+  project = data.digitalocean_project.do_project.id
   resources = [
     digitalocean_database_cluster.cluster.urn
   ]
