@@ -1,6 +1,10 @@
 name: Terraform Plan AWS 
 
 on: 
+  push:
+    branches:
+      - main
+
   pull_request:
     
 
