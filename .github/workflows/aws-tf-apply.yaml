@@ -33,7 +33,7 @@ jobs:
 
       # Init pulls credentials from the .aws/credentials file by default
       - name: "Terraform Init"
-        run: terraform init -input=false
+        run: terraform init 
         working-directory: ./setup/AWS
 
       # The id value is used for reference in the comment step via "steps.plan.outputs.stdout"
