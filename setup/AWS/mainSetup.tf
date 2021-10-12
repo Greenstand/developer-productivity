@@ -11,7 +11,7 @@ module "s3_bucket" {
 terraform {
   backend "s3" {
     bucket = "demo-s3-terraform-use1"
-    key    = "tf-state-demo/terraform.tfstate"
+    key    = "tf-state-demo1/terraform.tfstate"
     region = "us-east-1"
   }
 }
