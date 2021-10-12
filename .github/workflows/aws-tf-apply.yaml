@@ -22,7 +22,6 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
      # Provides AWS credentials to Terraform
-     # By default, Terraform checks the home directory for a .aws folder with a credential file
      # Documentation: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/create-shared-credentials-file.html
       - name: "Setup - Build AWS Credentials"
         run: |
@@ -31,10 +30,6 @@ jobs:
           echo "aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}" >> ~/.aws/credentials
           echo "aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> ~/.aws/credentials
      
-     
-     
-      # - name: "Setup - Terraform CLI"
-      #   uses: hashicorp/setup-terraform@v1.0.1
 
       # Init pulls credentials from the .aws/credentials file by default
       - name: "Terraform Init"
@@ -42,10 +37,9 @@ jobs:
         working-directory: ./setup/AWS
 
       # The id value is used for reference in the comment step via "steps.plan.outputs.stdout"
-      # Note: Color is disabled to prevent messy characters from appearing in the pull request comment
       - name: "Terraform Plan"
         id: plan
-        run: terraform plan -input=false -no-color
+        run: terraform plan -input=false 
         working-directory: ./setup/AWS
 
 
