@@ -23,7 +23,7 @@ jobs:
 
      # Provides AWS credentials to Terraform
      # Documentation: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/create-shared-credentials-file.html
-      - name: "Setup - Build AWS Credentials"
+      - name: "Setup AWS Credentials"
         run: |
           mkdir -p ~/.aws
           echo "[default]" > ~/.aws/credentials
